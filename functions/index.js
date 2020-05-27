@@ -11,7 +11,7 @@ const os = require('os');
 const fs = require('fs');
 const parse = require('csv-parse/lib/sync')
 
-exports.generateThumbnail = functions.storage.object().onFinalize(async (object) => {
+exports.nuevoArchivo = functions.storage.object().onFinalize(async (object) => {
   console.log(">>>>>>INICIO")
   const fileBucket = object.bucket; // The Storage bucket that contains the file.
   const filePath = object.name; // File path in the bucket.
@@ -44,15 +44,20 @@ exports.generateThumbnail = functions.storage.object().onFinalize(async (object)
 
 function toJSON(content) {
   const input = `
-"key_1","key_2"
-"value 1","value 2"
-`
-const records = parse(input, {
-  columns: true,
-  skip_empty_lines: true
-  
-})
-toDB(records)
+  "key_1","key_2"
+  "value 1","value 2"
+  `
+  console.log(content)
+  try {
+    const records = parse(content, {
+      columns: false,
+      skip_empty_lines: true
+    })
+    console.log('>>>>>>>>>>>>>>. ',records)
+    toDB(records)
+  } catch (error) {
+    console.log('>>> Error', error)
+  }
 }
 
 function toDB(jsn) {
