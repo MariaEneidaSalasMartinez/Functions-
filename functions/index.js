@@ -72,19 +72,29 @@ Bullying ,¿Intervengo cuando soy testigo de bullying?,booleana ,,,,,,,,,,
 });*/
 
 function toJSON(content) {
-  const input = `
-  "key_1","key_2"
-  "value 1","value 2"
-  `
-  console.log(content)
   try {
-    const records = parse(content, {
+    const filas = parse(content, {
       columns: false,
       skip_empty_lines: true,
      
     })
-    console.log('>>>>>>>>>>>>>>. ',records)
-    toDB(records)
+    // Extraccion de datos
+    let tema = new Set()
+    for (let i = 0; i < filas.length; i++) {
+      const columnas = filas[i];
+      for (let j = 0; j < columnas.length; j++) {
+        const valor = columnas[j];
+      }
+      tema.add(columnas[0])
+    }
+    // Estructurar JSON
+    let jsonObject = {}
+    for (let el of tema) {
+      jsonObject[el] = 'mhhvfdjsdfjh'
+    }
+    console.log(jsonObject)
+    // Guardar en base de datos
+    toDB(jsonObject)
   } catch (error) {
     console.log('>>> Error', error)
   }
@@ -92,8 +102,6 @@ function toJSON(content) {
 
 function toDB(jsn) {
 admin.database().ref("plantilla").set(jsn);
-  // Here you can add you firestore/ realtime database or merge the JSON if you want to batch write.
-  console.log(jsn)
 }
 
 
