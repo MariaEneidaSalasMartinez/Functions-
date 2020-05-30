@@ -78,19 +78,15 @@ function toJSON(content) {
       skip_empty_lines: true,
      
     })
-    // Extraccion de datos
-    let tema = new Set()
+    // Extraccion de datos y
+    // Estructurar JSON
+    let jsonObject = {}
     for (let i = 0; i < filas.length; i++) {
       const columnas = filas[i];
       for (let j = 0; j < columnas.length; j++) {
         const valor = columnas[j];
       }
-      tema.add(columnas[0])
-    }
-    // Estructurar JSON
-    let jsonObject = {}
-    for (let el of tema) {
-      jsonObject[el] = 'mhhvfdjsdfjh'
+      jsonObject[columnas[0]] = 'mhhvfdjsdfjh'
     }
     console.log(jsonObject)
     // Guardar en base de datos
