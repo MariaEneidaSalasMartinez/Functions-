@@ -40,7 +40,7 @@ Bullying ,¿Tomas acciones para prevenir el bullying?,booleana ,,,,,,,,,,
 Bullying ,¿Intervengo cuando soy testigo de bullying?,booleana ,,,,,,,,,,
 `
 
-exports.nuevoArchivo = functions.storage.object().onFinalize(async (object) => {
+/*exports.nuevoArchivo = functions.storage.object().onFinalize(async (object) => {
   console.log(">>>>>>INICIO")
   const fileBucket = object.bucket; // The Storage bucket that contains the file.
   const filePath = object.name; // File path in the bucket.
@@ -69,7 +69,7 @@ exports.nuevoArchivo = functions.storage.object().onFinalize(async (object) => {
 
       toJSON(contents.toString());
   });
-});
+});*/
 
 function toJSON(content) {
   const input = `
