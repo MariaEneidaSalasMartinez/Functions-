@@ -79,8 +79,8 @@ function toJSON(content) {
         jsonObject[columnas[0].trim()] = [];
         // Si es de opcion multiple crear una lista de respuestas, si no, no guardar campo de respuestas
         if (columnas[2].trim() === 'opcion multiple') {
-          // Crear nodo de pregunta con lista de respuestas
-          let valorRespuestas = columnas[2].trim().split('|');
+          // Crear nodo de pregunta con lista de respuestas, las respuestas se toman de la columna 4
+          let valorRespuestas = columnas[3].trim().split('|');
           let pregunta = {
             pregunta: columnas[1].trim(),
             tipoPregunta: columnas[2].trim(),
