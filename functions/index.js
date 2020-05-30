@@ -86,7 +86,9 @@ function toJSON(content) {
       for (let j = 0; j < columnas.length; j++) {
         const valor = columnas[j];
       }
-      jsonObject[columnas[0]] = 'mhhvfdjsdfjh'
+      var Array = []
+      jsonObject[columnas[0].trim()] = ' mhhvfdjsdfjh '
+      console.log(columnas[1])
     }
     console.log(jsonObject)
     // Guardar en base de datos
